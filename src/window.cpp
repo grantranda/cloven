@@ -6,10 +6,10 @@ void Window::glfw_error_callback(int error, const char* description) {
 	fprintf(stderr, "GLFW Error %d: %s\n", error, description);
 }
 
-Window::Window(const std::string& title, int width, int height) {
+Window::Window(const std::string& title, const int width, const int height) {
 	glfwSetErrorCallback(glfw_error_callback);
 	if (!glfwInit()) {
-		// return -1;
+		throw std::exception("Error initializing GLFW.");
 	}
 
 	// Set OpenGL version
@@ -17,15 +17,21 @@ Window::Window(const std::string& title, int width, int height) {
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
 
 	// Create window
-	glfw_window = glfwCreateWindow(1920, 1080, "Cloven", nullptr, nullptr);
+	glfw_window = glfwCreateWindow(width, height, title.c_str(), nullptr, nullptr);
 	if (!glfw_window) {
 		glfwTerminate();
-		// return -1;
+		throw std::exception("Error creating GLFW window.");
 	}
 	glfwMakeContextCurrent(glfw_window);
-	// glfwSwapInterval(1); // Enable VSync
+	glfwSwapInterval(1); // Enable VSync
 
 	glfwSetInputMode(glfw_window, GLFW_STICKY_KEYS, GL_TRUE);
+	glfwSetInputMode(glfw_window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+
+	glClearColor(0.10f, 0.10f, 0.10f, 1.0f);
+
+	glEnable(GL_DEPTH_TEST);
+	//glEnable(GL_STENCIL_TEST);
 }
 
 Window::~Window() {
@@ -48,7 +54,11 @@ void Window::render() {
 	int display_w, display_h;
 	glfwGetFramebufferSize(glfw_window, &display_w, &display_h);
 	glViewport(0, 0, display_w, display_h);
-	glClearColor(clear_color.x * clear_color.w, clear_color.y * clear_color.w, clear_color.z * clear_color.w,
-		clear_color.w);
-	glClear(GL_COLOR_BUFFER_BIT);
+
+	// glEnable(GL_DEPTH_TEST);
+	// glEnable(GL_STENCIL_TEST);
+
+	// glClearColor(clear_color.x * clear_color.w, clear_color.y * clear_color.w, clear_color.z * clear_color.w,
+	// 	clear_color.w);
+	// glClear(GL_COLOR_BUFFER_BIT);
 }

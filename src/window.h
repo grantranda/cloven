@@ -6,7 +6,7 @@ class Window {
 public:
 	GLFWwindow* glfw_window;
 
-	Window(const std::string& title, int width, int height);
+	Window(const std::string& title, const int width, const int height);
 	~Window();
 
 	bool should_close() const;
