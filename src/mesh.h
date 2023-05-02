@@ -19,4 +19,5 @@ private:
 
 	GLuint VAO, VBO, TBO, IBO;
 	GLsizei num_vertices;
+	GLsizei num_indices;
 };
