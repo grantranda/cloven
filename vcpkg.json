@@ -1,0 +1,29 @@
+{
+	"$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg.schema.json",
+	"name": "cloven",
+	"version-string": "1.0",
+	"dependencies": [
+		"glew",
+		"glfw3",
+		"glm",
+		{
+			"name": "imgui",
+			"default-features": false,
+			"features": [
+				"glfw-binding",
+				"opengl3-binding"
+			]
+		},
+		{
+			"name": "libigl",
+			"default-features": false,
+			"features": [
+				"glfw",
+				"opengl"
+			]
+		},
+		"opengl-registry",
+		"opengl"
+	],
+	"builtin-baseline": "80ecf32496c3806c5bb79bb80f029f83d058930e"
+}
