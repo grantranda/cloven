@@ -3,13 +3,16 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+
 #include <GL/glew.h>
+#include <GL/gl.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
-#include <GL/gl.h>
 
 class Shader {
 public:
+	GLuint program_id;
+
 	Shader(const std::string& vertex_path, const std::string& fragment_path);
 	~Shader();
 
@@ -25,7 +28,6 @@ public:
 	void set_uniform_mat4(const std::string& name, glm::mat4 mat) const;
 
 private:
-	GLuint program_id;
 	std::string read_file(const std::string& path);
 	void attach_shader(const std::string& shader_path, GLenum shader_type);
 };
