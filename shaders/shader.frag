@@ -119,7 +119,7 @@ float snoise(vec3 v) {
 }
 
 /*
-The rest of the GLSL shader code in this file is licensed under the GNU General Public License (GPL).
+The rest of the GLSL shader code in this file is licensed under the GNU General Public License v3.0.
 */
 
 // Output
