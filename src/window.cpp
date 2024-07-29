@@ -27,11 +27,6 @@ Window::Window(const std::string& title, const int width, const int height) {
 
 	glfwSetInputMode(glfw_window, GLFW_STICKY_KEYS, GL_TRUE);
 	glfwSetInputMode(glfw_window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-
-	glClearColor(0.10f, 0.10f, 0.10f, 1.0f);
-
-	glEnable(GL_DEPTH_TEST);
-	//glEnable(GL_STENCIL_TEST);
 }
 
 Window::~Window() {
@@ -43,22 +38,16 @@ bool Window::should_close() const {
 	return glfwWindowShouldClose(glfw_window);
 }
 
-void Window::update() {
+void Window::update() const {
 	glfwSwapBuffers(glfw_window);
 	glfwPollEvents();
 }
 
-void Window::render() {
-	constexpr ImVec4 clear_color = ImVec4(0.8f, 0.8f, 0.8f, 1.0f);
-
+void Window::update_viewport(const int x_offset) const {
 	int display_w, display_h;
 	glfwGetFramebufferSize(glfw_window, &display_w, &display_h);
-	glViewport(0, 0, display_w, display_h);
-
-	// glEnable(GL_DEPTH_TEST);
-	// glEnable(GL_STENCIL_TEST);
-
-	// glClearColor(clear_color.x * clear_color.w, clear_color.y * clear_color.w, clear_color.z * clear_color.w,
-	// 	clear_color.w);
-	// glClear(GL_COLOR_BUFFER_BIT);
+	const int available_width = display_w - x_offset;
+	const GLfloat screen_ratio = static_cast<GLfloat>(display_w) / static_cast<GLfloat>(display_h);
+	const int viewport_height = static_cast<int>(static_cast<float>(available_width) / screen_ratio);
+	glViewport(x_offset, (display_h - viewport_height) / 2, available_width, viewport_height);
 }
