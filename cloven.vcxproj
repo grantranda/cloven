@@ -133,20 +133,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\camera.cpp" />
-    <ClCompile Include="src\mesh.cpp" />
+    <ClCompile Include="src\gradient_editor.cpp" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\model.cpp" />
     <ClCompile Include="src\shader.cpp" />
-    <ClCompile Include="src\texture.cpp" />
     <ClCompile Include="src\window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\app_settings.h" />
     <ClInclude Include="src\camera.h" />
-    <ClInclude Include="src\mesh.h" />
-    <ClInclude Include="src\model.h" />
+    <ClInclude Include="src\gradient_editor.h" />
     <ClInclude Include="src\shader.h" />
-    <ClInclude Include="src\texture.h" />
-    <ClInclude Include="src\vertex.h" />
     <ClInclude Include="src\window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
