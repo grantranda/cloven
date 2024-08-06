@@ -64,7 +64,8 @@ int main() {
 	init_gui(window->glfw_window);
 
 	// Create and bind shader
-	Shader shader("./shaders/shader.vert", "./shaders/shader.frag");
+	Shader shader("shaders/shader.vert", "shaders/shader.frag");
+
 	shader.bind();
 
 	// Set up VAO and VBO
