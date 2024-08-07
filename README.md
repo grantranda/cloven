@@ -2,6 +2,8 @@
 
 Cloven is a 3D fractal rendering application for Mandelbulb visualization. It provides an interface for manipulating fractal parameters and other rendering settings in real-time.
 
+![Cloven](screenshots/main_view.png)
+
 ## Features
 
 - **Real-time Fractal Rendering**
@@ -28,10 +30,6 @@ Cloven is a 3D fractal rendering application for Mandelbulb visualization. It pr
 - **G**: Toggle GUI
 - **Left-Alt**: Toggle between GUI interaction and camera interaction
 - **Esc**: Close the program
-
-## Screenshots
-
-
 
 ## Installation and Usage
 
