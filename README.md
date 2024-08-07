@@ -25,6 +25,7 @@ Cloven is a 3D fractal rendering application for Mandelbulb visualization. It pr
 - **Space**: Move camera up
 - **C**: Move camera down
 - **F**: Toggle fullscreen
+- **G**: Toggle GUI
 - **Left-Alt**: Toggle between GUI interaction and camera interaction
 - **Esc**: Close the program
 
