@@ -39,7 +39,7 @@ void render_gui();
 int main() {
 	// Initialize window
 	try {
-		window = new Window("Cloven", default_width, default_height);
+		window = new Window("Cloven");
 	} catch (std::exception& e) {
 		fprintf(stderr, "%s\n", e.what());
 		return -1;
@@ -265,10 +265,23 @@ void cursor_position_callback(GLFWwindow* glfw_window, double xpos, double ypos)
 }
 
 void resize_callback(GLFWwindow* glfw_window, const int w, const int h) {
+	GLFWmonitor* monitor = glfwGetWindowMonitor(glfw_window);
+    const bool is_fullscreen = (monitor != nullptr);
+
 	window->update_viewport(settings.show_gui ? gui_width : 0);
-	resolution.x = static_cast<GLfloat>(w);
-	resolution.y = static_cast<GLfloat>(h);
-	aspect_ratio = resolution.x / resolution.y;
+
+	if (!is_fullscreen) {
+		resolution.x = static_cast<GLfloat>(w);
+		resolution.y = static_cast<GLfloat>(h);
+		aspect_ratio = (resolution.y != 0.0f) ? (resolution.x / resolution.y) : 1.0f;
+	} else {
+		const GLFWvidmode* mode = glfwGetVideoMode(monitor);
+        if (mode) {
+            resolution.x = static_cast<GLfloat>(mode->width);
+            resolution.y = static_cast<GLfloat>(mode->height);
+            aspect_ratio = (resolution.y != 0.0f) ? (resolution.x / resolution.y) : 1.0f;
+        }
+	}
 }
 
 void init_gui(GLFWwindow* glfw_window) {
