@@ -233,9 +233,12 @@ void key_callback(GLFWwindow* glfw_window, int key, int scancode, int action, in
 		} else {
 			glfwSetInputMode(glfw_window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 		}
-	} else if (key == GLFW_KEY_F && action == GLFW_PRESS) {
+	} else if (key == GLFW_KEY_G && action == GLFW_PRESS) {
 		settings.show_gui = !settings.show_gui;
 		window->update_viewport(settings.show_gui ? gui_width : 0);
+	} else if (key == GLFW_KEY_F && action == GLFW_PRESS) {
+		window->toggle_fullscreen();
+		glfwWaitEventsTimeout(0.1);
 	}
 }
 
