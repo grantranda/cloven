@@ -1,6 +1,6 @@
 # Cloven
 
-Cloven is a 3D fractal rendering application for Mandelbulb visualization. It provides an interface for manipulating fractal parameters and other rendering settings in real-time. Windows is the only supported operating system.
+Cloven is a 3D fractal rendering application for Mandelbulb visualization. It provides an interface for manipulating fractal parameters and other rendering settings in real-time. The program was developed with an RTX 3080 and may perform poorly on lower-end GPUs. Windows is the only supported operating system.
 
 ![Cloven](screenshots/main_view.png)
 
