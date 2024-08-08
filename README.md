@@ -46,7 +46,6 @@ Cloven is a 3D fractal rendering application for Mandelbulb visualization. It pr
 
 3. **Install Dependencies with Vcpkg:**
    ```sh
-   vcpkg integrate install
    vcpkg install
    ```
 
